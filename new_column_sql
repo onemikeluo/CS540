@@ -1,1 +1,7 @@
+select luc, luc_desc from volusia.sales_analysis where luc = '4800' limit 1;
 
+select p.parid, p.luc, p.luc_desc, ST_Distance(p.geom, (select p2.geom from volusia.parcel p2 where parid=3565215))/5280  
+from volusia.parcel p
+where p.luc='4800'
+order by p.geom <-> (select p2.geom from volusia.parcel p2 where parid=3565215) 
+limit 5;
