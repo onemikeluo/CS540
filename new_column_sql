@@ -5,3 +5,23 @@ from volusia.parcel p
 where p.luc='4800'
 order by p.geom <-> (select p2.geom from volusia.parcel p2 where parid=3565215) 
 limit 5;
+
+-- the closet golf course to a random parcel
+select p.parid, p.geom, ST_Distance(p.geom, (select p2.geom from volusia.parcel p2 where p2.parid=2004291))/5280  
+from volusia.parcel p
+where p.luc='4800' 
+order by p.geom <-> (select p2.geom from volusia.parcel p2 where p2.parid=2004291) limit 1;
+
+alter table volusia.parcel add column gcdistance double precision;
+
+SELECT AddGeometryColumn ('volusia','parcel','geom',2236,'MULTIPOLYGON',2);
+update volusia.parcel a set geom = p.geom from volusia.gis_parcels p where a.parid=p.altkey;
+
+update volusia.parcel p1 set gcdistance = ST_Distance(p1.geom, p2.geom)/5280 from volusia.parcel p2 where p1.parid=2004291 and p2.parid=5685331;
+
+create index idx_parcel_luc on volusia.parcel (luc);
+create index idx_parcel on volusia.parcel (parid);
+
+CREATE INDEX parcel_geom_idx
+  ON volusia.parcel
+  USING GIST (geom);
