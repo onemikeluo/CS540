@@ -1,1 +1,10 @@
-refer to Individual Project.pptx for steps
+The goal of this project is to discover if the proximity between a parcel and the nearest warehouse/distribution center actually affect the selling price of the parcel.
+
+With the general view of the distribution map reflecting the locations of warehouse/distribution center (volusia.png), 
+we see a majority of them are located near the urban area, with several located near the interstate highways.
+
+My prediction specifically focused on the greater Deland area, 
+as I could identify an obvious price linear relationship between the a parcel and the nearest warehouse/distribution center
+while i could not identify the linear trend for the beach side cities.
+
+Starting with adding the new column, refer to new_column_sql
