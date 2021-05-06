@@ -4,7 +4,13 @@ With the general view of the distribution map reflecting the locations of wareho
 we see a majority of them are located near the urban area, with several located near the interstate highways.
 
 My prediction specifically focused on the greater Deland area, 
-as I could identify an obvious price linear relationship between the a parcel and the nearest warehouse/distribution center
-while i could not identify the linear trend for the beach side cities.
+as I could identify a price linear relationship between the parcel and the nearest warehouse/distribution center
+while I could not identify the linear trend for the beach side cities.
 
-Starting with adding the new column, refer to new_column_sql
+1st, refer to "new_column_sql" to add a new column which will be useful in the 2nd step to calculate the distance between parcel and nearest warehouse location;
+2nd, at this point, the new column is set up, refer to "new_column_loop.ipynb" 
+     to make sure every applicable parcel has its distance calculated to the nearest warehouse/distribution center;
+3rd, now use linear regression to predict if the house price is actually affected by the gcdistance from the nearest warehouse/distribution center
+     refer to "regression.ipynb" for regression.
+     
+Refer to "Inidvidual Project.pdf" for details.
